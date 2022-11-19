@@ -1,3 +1,5 @@
+
+import os
 import argparse
 
 import torch
@@ -26,7 +28,24 @@ def main():
         f = loader.get_scale_factor(i)
         aabbs = [aabb.scale(1 / f, 1 / f) for aabb in aabbs]
         img = loader.get_original_img(i)
-        print(loader.fn_imgs[i], len(aabbs))
+
+        name = loader.fn_imgs[i].split("/")[-1].split(".")[0]
+
+        #if not os.path.exists("labels"):
+        #    os.makedirs("labels")
+
+        file = "labels/"+name+".txt"
+        #open(file, 'w+')
+
+        for aabb in aabbs:
+
+            print(aabb)
+
+            #with open(file, "a+") as f:
+            #f.write()
+            #f.close()
+
+
         #visualize_and_plot(img, aabbs)
 
 
