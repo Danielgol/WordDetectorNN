@@ -25,8 +25,9 @@ def main():
     for i, (img, aabbs) in enumerate(zip(res.batch_imgs, res.batch_aabbs)):
         f = loader.get_scale_factor(i)
         aabbs = [aabb.scale(1 / f, 1 / f) for aabb in aabbs]
+        print(aabbs)
         img = loader.get_original_img(i)
-        visualize_and_plot(img, aabbs)
+        #visualize_and_plot(img, aabbs)
 
 
 if __name__ == '__main__':
