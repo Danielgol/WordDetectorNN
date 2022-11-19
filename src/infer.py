@@ -42,7 +42,7 @@ def main():
 
         for aabb in aabbs:
             with open(file, "a+") as f:
-                f.write(aabb.xmin+" "+aabb.xmax+" "+aabb.ymin+" "+aabb.ymax+"\n")
+                f.write(int(aabb.xmin)+" "+int(aabb.xmax)+" "+int(aabb.ymin)+" "+int(aabb.ymax)+"\n")
                 f.close()
 
         #visualize_and_plot(img, aabbs)
