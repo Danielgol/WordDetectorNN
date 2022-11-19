@@ -32,17 +32,19 @@ def main():
         name = loader.fn_imgs[i].split("/")[-1].split(".")[0]
 
         if not os.path.exists("pred_labels"):
+            print("pred_labels created!")
             os.makedirs("pred_labels")
 
         file = "pred_labels/"+name+".txt"
         open(file, 'w+')
 
+        print(file)
+
         for aabb in aabbs:
-            print(aabb.xmin, aabb.xmax, aabb.ymin, aabb.ymax)
             with open(file, "a+") as f:
                 f.write(aabb.xmin+" "+aabb.xmax+" "+aabb.ymin+" "+aabb.ymax+"\n")
                 f.close()
-                
+
         #visualize_and_plot(img, aabbs)
 
 
