@@ -31,21 +31,18 @@ def main():
 
         name = loader.fn_imgs[i].split("/")[-1].split(".")[0]
 
-        #if not os.path.exists("labels"):
-        #    os.makedirs("labels")
+        if not os.path.exists("pred_labels"):
+            os.makedirs("pred_labels")
 
-        file = "labels/"+name+".txt"
-        #open(file, 'w+')
+        file = "pred_labels/"+name+".txt"
+        open(file, 'w+')
 
         for aabb in aabbs:
-
             print(aabb.xmin, aabb.xmax, aabb.ymin, aabb.ymax)
-
-            #with open(file, "a+") as f:
-            #f.write()
-            #f.close()
-
-
+            with open(file, "a+") as f:
+                f.write(aabb.xmin+" "+aabb.xmax+" "+aabb.ymin+" "+aabb.ymax+"\n")
+                f.close()
+                
         #visualize_and_plot(img, aabbs)
 
 
