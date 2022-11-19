@@ -39,7 +39,7 @@ def main():
 
         for aabb in aabbs:
 
-            print(aabb)
+            print(aabb.xmin, aabb.xmax, aabb.ymin, aabb.ymax)
 
             #with open(file, "a+") as f:
             #f.write()
